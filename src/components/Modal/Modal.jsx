@@ -1,10 +1,10 @@
 const Modal = ({ selectedImage }) => {
-  console.log(selectedImage?.tags[0].source.subtitle);
+  console.log(selectedImage?.user.for_hire);
   return (
     <>
       <input type="checkbox" id="my_modal_4" className="modal-toggle" />
       <div className="modal ">
-        <div className="w-11/12 max-w-5xl h-auto relative bg-white p-2">
+        <div className="w-11/12 max-w-5xl h-auto relative bg-white p-2 space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex ">
               <img
@@ -20,6 +20,11 @@ const Modal = ({ selectedImage }) => {
                   @{selectedImage?.user.username}
                 </p>
               </div>
+              <small className="text-blue-600 ml-2">
+                {selectedImage?.user.for_hire
+                  ? "Available for hire"
+                  : selectedImage?.user.for_hire}
+              </small>
             </div>
             <div className="flex gap-2">
               <svg
@@ -124,7 +129,7 @@ const Modal = ({ selectedImage }) => {
               </svg>
               <p className="ml-3">
                 Published on{" "}
-                {selectedImage?.topic_submissions["business-work"].approved_on
+                {selectedImage?.topic_submissions["business-work"]?.approved_on
                   ? new Date(
                       selectedImage.topic_submissions[
                         "business-work"
@@ -150,7 +155,11 @@ const Modal = ({ selectedImage }) => {
                   d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
                 />
               </svg>
-              <p className="ml-3">{selectedImage?.tags[0].source.subtitle}</p>
+              <p className="ml-3">
+                {selectedImage?.tags[0].source?.subtitle
+                  ? selectedImage?.tags[0].source?.subtitle
+                  : "null"}
+              </p>
             </div>
             <div></div>
           </div>
