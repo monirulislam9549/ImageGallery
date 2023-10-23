@@ -1,5 +1,5 @@
 const Modal = ({ selectedImage }) => {
-  console.log(selectedImage?.user.for_hire);
+  // console.log(selectedImage?.tags.map((tag) => console.log(tag.title)));
   return (
     <>
       <input type="checkbox" id="my_modal_4" className="modal-toggle" />
